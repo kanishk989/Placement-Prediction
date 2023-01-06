@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: linear-gradient(45deg, skyblue,white,cornflowerblue,white,lightgreen,white);
+}
+.input-box {
+    width: 25%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    color: #fff;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    background: rgba(187, 187, 245, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login {
+    width: 600px;
+    height: 550px;
+    box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.26);
+    perspective: 1000px;
+}

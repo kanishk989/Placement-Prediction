@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Placement Prediction</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-image: linear-gradient(
+                    45deg,
+                    skyblue,
+                    white,
+                    cornflowerblue,
+                    white,
+                    lightgreen,
+                    white
+                );
+            }
+            .input-box {
+                width: 25%;
+                background: transparent;
+                border: 1px solid #fff;
+                margin: 6px 0;
+                height: 32px;
+                border-radius: 20px;
+                padding: 0 10px;
+                box-sizing: border-box;
+                outline: none;
+                text-align: center;
+                color: #fff;
+            }
+            .container {
+                width: 100%;
+                height: 100vh;
+                font-family: sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .login {
+                width: 600px;
+                height: 550px;
+                background: rgba(155, 145, 200, 0.6);
+                box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.5);
+                perspective: 1000px;
+            }
+        </style>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html"
+                        >Placement Prediction</a
+                    >
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="login">
+                <center>
+                    <!-- Inputs for our ML model -->
+                    <form action="/predict" method="post">
+                        <h2>Placement Prediction</h2>
+                        <p>
+                            Introduce the number of internships, cgpa,
+                            hostel(Opted or not) and total number of backlogs:
+                        </p>
+                        <input
+                            type="text"
+                            class="input-box"
+                            name="internships"
+                            placeholder="Internship"
+                            required="required"
+                        />
+                        <br /><br />
+                        <p>CGPA</p>
+                        <input
+                            style="width: 150px"
+                            type="number"
+                            name="cgpa"
+                            min="0"
+                            max="10"
+                            required="required"
+                        />
+                        <br />
+                        <p>Hostel</p>
+                        <input type="radio" id="zero" name="hostel" value="0" />
+                        <label for="zero">Allotted</label><br />
+                        <input type="radio" id="one" name="hostel" value="1" />
+                        <label for="one">Not Allotted</label>
+                        <br /><br />
+                        <input
+                            type="text"
+                            class="input-box"
+                            name="backlogs"
+                            placeholder="NoOfBacklogs"
+                            required="required"
+                        />
+                        <br /><br />
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Predict Value!
+                        </button>
+                    </form>
+                    <br />
+                    <br />
+                    <b> {{ prediction_text }} </b>
+                </center>
+            </div>
+        </div>
+    </body>
+</html>
